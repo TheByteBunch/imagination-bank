@@ -1,4 +1,5 @@
-import pickle
+import json
+
 
 def main():
     account_name,account_balance=create_account()
@@ -34,8 +35,8 @@ def create_account():
         print("It's time to create an account!")
         account_name=input("Please Enter an account name: ")
         account_balance=0
-        with open('account.pickle','wb') as p:
-            pickle.dump([[account_name,account_balance]],p)
+        with open('account.json','w') as p:
+            json.dump([[account_name,account_balance]],p)
         print("Account was created successfully.")
         break
     if answer=="Y":
@@ -48,8 +49,8 @@ def login_user(account_name,account_balance):
             break
         elif answer=="Y":
             account_found=False
-            with open('account.pickle','rb') as p:
-                account_list=pickle.load(p)
+            with open('account.json','r') as p:
+                account_list=json.load(p)
         while True:
             account_name=input("Please enter an account name: ")
             for i in account_list:
