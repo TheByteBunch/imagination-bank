@@ -89,7 +89,22 @@ def create_account():
     account_list=[]
     while True:
         print("It's time to create an account!")
-        account_name=input("Please Enter an account name: ")
+        while True:
+            account_same=False
+            account_name=input("Please Enter an account name: ")
+            if os.path.exists('account.json'):
+                with open('account.json','r') as p:
+                    account_list=json.load(p)
+                    for i in account_list:
+                        if i[0]==account_name:
+                            print("Username taken. Please try again.")
+                            account_same=True
+                            break
+            if account_same==True:
+                        continue
+            break
+            
+                
         account_balance=0
     
         if os.path.exists('account.json'):
