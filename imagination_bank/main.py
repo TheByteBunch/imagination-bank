@@ -2,7 +2,7 @@ import json
 import os
 
 def main():
-    print("Hello And Welcome To RealMasterChief's Bank, The Best In The World Of Online Banking.")
+    print("Hello And Welcome To Nobody's Bank, The Best In The World Of Online Banking.")
     while True:
         answer=input("Do you have an account already? [Y/N]: ")
         answer=answer.upper()
